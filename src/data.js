@@ -1,4 +1,4 @@
-/* ─── DATA ──────────────────────────────────────────────────── */
+/*DATA*/
 export const skills = [
     { cat: "Frontend", items: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "HTML & CSS", "Framer Motion"] },
     { cat: "Backend & DB", items: ["Node.js", "Express.js", "Python", "Django", "PostgreSQL", "MongoDB"] },
@@ -35,4 +35,3 @@ export const contacts = [
     { icon: "GH", label: "GitHub", val: "github.com/quazirihal", href: "#" },
     { icon: "LI", label: "LinkedIn", val: "linkedin.com/in/quazirihal", href: "#" },
 ];
-

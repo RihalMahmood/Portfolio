@@ -1,5 +1,4 @@
-
-/* ─── AVATAR SVG ─────────────────────────────────────────────── */
+/*AVATAR SVG*/
 const Avatar = () => (
   <svg className="avatar-svg" viewBox="0 0 200 320" fill="none" xmlns="http://www.w3.org/2000/svg">
     <ellipse cx="100" cy="95" rx="52" ry="58" fill="#1c2233" />
@@ -24,7 +23,7 @@ const Avatar = () => (
 export default function Hero({ setHovering }) {
   const ho = { onMouseEnter: () => setHovering(true), onMouseLeave: () => setHovering(false) };
   return (
-    <section className="hero"><div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 300px", gridTemplateRows: "1fr auto", gap: "0 60px" }}>
+    <section className="hero"><div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 300px", gridTemplateRows: "1fr auto", gap: "0 60px", padding: "0 40px" }}>
 
       <svg style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, pointerEvents: "none" }}>
         <path d="M -100 200 Q 300 500 500 -100" stroke="rgba(255,255,255,0.05)" fill="transparent" strokeWidth="1" />

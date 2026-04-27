@@ -5,7 +5,7 @@ export default function Contact({ setHovering }) {
     return (
         <>
             {/* ── CONTACT ── */}
-            <section className="contact-section" id="contact"><div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "center" }}>
+            <section className="contact-section" id="contact"><div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "center", padding: "0 40px" }}>
                 <div className="contact-left reveal">
                     <div className="section-label">Get In Touch</div>
                     <h2>Let's build<br /><em>something</em><br />great together</h2>
@@ -31,7 +31,7 @@ export default function Contact({ setHovering }) {
             </div></section>
 
             {/* ── FOOTER ── */}
-            <footer><div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <footer><div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 40px" }}>
                 <span>© 2024 Quazi Rihal Mahmood. All rights reserved.</span>
                 <span>Built with React · Inspired by DevSync</span>
             </div></footer>

@@ -1,4 +1,3 @@
-
 const coreStacks = ["JavaScript", "TypeScript", "Java", "C", "C++", "Python", "HTML", "CSS", "Node.js", "React", "TailwindCSS", "Git", "Vercel", "Docker", "Next.js", "PHP"];
 
 const devicons = { 'JavaScript': 'javascript/javascript-original.svg', 'TypeScript': 'typescript/typescript-original.svg', 'Java': 'java/java-original.svg', 'C': 'c/c-original.svg', 'C++': 'cplusplus/cplusplus-original.svg', 'Python': 'python/python-original.svg', 'HTML': 'html5/html5-original.svg', 'CSS': 'css3/css3-original.svg', 'Node.js': 'nodejs/nodejs-original.svg', 'React': 'react/react-original.svg', 'TailwindCSS': 'tailwindcss/tailwindcss-original.svg', 'Git': 'git/git-original.svg', 'Vercel': 'vercel/vercel-original.svg', 'Docker': 'docker/docker-original.svg', 'Next.js': 'nextjs/nextjs-original.svg', 'PHP': 'php/php-original.svg' };
