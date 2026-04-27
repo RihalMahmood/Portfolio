@@ -35,8 +35,8 @@ export default function App() {
       <Navbar scrolled={scrolled} hovering={hovering} setHovering={setHovering} />
       <Hero hovering={hovering} setHovering={setHovering} />
       <Marquee />
-      <Skills hovering={hovering} setHovering={setHovering} />
       <Projects hovering={hovering} setHovering={setHovering} />
+      <Skills hovering={hovering} setHovering={setHovering} />
       <Contact hovering={hovering} setHovering={setHovering} />
     </>
   );

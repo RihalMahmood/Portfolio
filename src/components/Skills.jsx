@@ -28,10 +28,9 @@ export default function Skills({ setHovering }) {
             </a>
             <div className="stats-row">
                 {[
-                    { num: "12", suf: "+", lbl: "Projects Built" },
-                    { num: "5", suf: "", lbl: "Hackathons Entered" },
-                    { num: "3", suf: ".8", lbl: "CGPA" },
-                    { num: "2", suf: "+", lbl: "Years of Coding" },
+                    { num: "10", suf: "+", lbl: "Projects Built" },
+                    { num: "3", suf: ".72", lbl: "CGPA" },
+                    { num: "4", suf: "+", lbl: "Years of Coding" },
                 ].map((s, i) => (
                     <div key={s.lbl} className={`stat reveal d${i + 1}`}>
                         <div className="num">{s.num}<span>{s.suf}</span></div>

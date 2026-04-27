@@ -4,17 +4,22 @@ const devicons = { 'JavaScript': 'javascript/javascript-original.svg', 'TypeScri
 
 const marqueeItems = coreStacks.map((stack, i) => (
     <span key={i} className={`marquee-item ${i % 2 === 0 ? "filled" : ""}`} style={{ padding: "0 20px", display: "flex", alignItems: "center", gap: "12px" }}>
-        <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${devicons[stack]}`} alt={stack} style={{ width: "40px", height: "40px", filter: "grayscale(100%) brightness(200%)" }} />
+        <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${devicons[stack]}`} alt={stack} style={{ width: "32px", height: "32px", filter: "grayscale(100%) brightness(200%)" }} />
         {stack}
     </span>
 ));
 
 export default function Marquee() {
     return (
-        <div className="marquee-wrap">
-            <div className="marquee-track">
-                {marqueeItems}{marqueeItems}
+        <section className="marquee-section">
+            <div className="container">
+                <div className="section-label marquee-label">Core Stack</div>
             </div>
-        </div>
+            <div className="marquee-wrap">
+                <div className="marquee-track">
+                    {marqueeItems}{marqueeItems}
+                </div>
+            </div>
+        </section>
     );
 }
