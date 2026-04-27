@@ -4,7 +4,7 @@ export default function Contact({ setHovering }) {
     const ho = { onMouseEnter: () => setHovering(true), onMouseLeave: () => setHovering(false) };
     return (
         <>
-            {/* ── CONTACT ── */}
+            {/*CONTACT*/}
             <section className="contact-section" id="contact"><div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "center", padding: "0 40px" }}>
                 <div className="contact-left reveal">
                     <div className="section-label">Get In Touch</div>
@@ -30,10 +30,10 @@ export default function Contact({ setHovering }) {
                 </div>
             </div></section>
 
-            {/* ── FOOTER ── */}
+            {/*FOOTER*/}
             <footer><div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 40px" }}>
-                <span>© 2024 Quazi Rihal Mahmood. All rights reserved.</span>
-                <span>Built with React · Inspired by DevSync</span>
+                <span>© 2026 Quazi Rihal Mahmood. All rights reserved.</span>
+                <span>Built with ❤️ and inspired by many great developers</span>
             </div></footer>
         </>
     );

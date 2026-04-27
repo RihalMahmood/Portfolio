@@ -151,7 +151,7 @@ nav.scrolled {
 .hero {
   min-height: 100vh;
   padding: 0 40px 48px;
-  padding-top: 220px;
+  padding-top: 320px;
   position: relative;
 }
 
@@ -279,7 +279,7 @@ nav.scrolled {
   overflow: hidden;
   flex: 1;
   min-height: 320px;
-  max-height: 440px;
+  max-height: 520px;
   border: 1px solid var(--border);
 }
 
