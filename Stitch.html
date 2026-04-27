@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>QR MAHMOOD - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-container": "#003206",
+            "tertiary": "#5fe060",
+            "on-background": "#f5dde1",
+            "primary-fixed-dim": "#ffb1c6",
+            "surface": "#1c1013",
+            "primary-container": "#f65592",
+            "accent-magenta": "#EA4C89",
+            "on-primary-fixed-variant": "#8e0048",
+            "on-primary-container": "#59002a",
+            "surface-bright": "#453539",
+            "on-secondary-fixed": "#1a192f",
+            "on-primary-fixed": "#3f001c",
+            "on-error-container": "#ffdad6",
+            "on-tertiary": "#003908",
+            "inverse-on-surface": "#3b2c30",
+            "surface-container-lowest": "#170b0e",
+            "on-tertiary-fixed": "#002203",
+            "on-secondary": "#2f2e45",
+            "surface-container-low": "#25181b",
+            "surface-dim": "#1c1013",
+            "primary": "#ffb1c6",
+            "on-secondary-fixed-variant": "#46445d",
+            "surface-container-high": "#34262a",
+            "tertiary-container": "#19a72f",
+            "on-tertiary-fixed-variant": "#00530f",
+            "on-error": "#690005",
+            "inverse-surface": "#f5dde1",
+            "tertiary-fixed": "#7cfe79",
+            "on-secondary-container": "#b5b2cf",
+            "tertiary-fixed-dim": "#5fe060",
+            "surface-variant": "#403134",
+            "on-primary": "#650031",
+            "outline": "#a68990",
+            "outline-variant": "#584147",
+            "surface-container": "#291c1f",
+            "secondary-fixed": "#e3dffe",
+            "background": "#1c1013",
+            "secondary": "#c7c3e1",
+            "inverse-primary": "#b31d5f",
+            "on-surface": "#f5dde1",
+            "surface-container-highest": "#403134",
+            "secondary-fixed-dim": "#c7c3e1",
+            "text-secondary": "#DFBEC6",
+            "on-surface-variant": "#dfbec6",
+            "primary-fixed": "#ffd9e1",
+            "surface-tint": "#ffb1c6",
+            "surface-inset": "#0C0B21",
+            "error-container": "#93000a",
+            "background-canvas": "#121127",
+            "text-primary": "#E3DFFE",
+            "secondary-container": "#46445d",
+            "border-muted": "rgba(255, 255, 255, 0.1)",
+            "error": "#ffb4ab"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter": "24px",
+            "base": "8px",
+            "section-gap": "160px",
+            "columns": "12",
+            "container-max": "1440px"
+          },
+          "fontFamily": {
+            "headline-lg": ["Space Grotesk"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Space Grotesk"],
+            "display": ["Space Grotesk"],
+            "label-caps": ["Space Grotesk"]
+          },
+          "fontSize": {
+            "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+            "headline-md": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "display": ["80px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+            "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.15em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .noise-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    body {
+      background-color: #000000;
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body class="antialiased overflow-x-hidden selection:bg-accent-magenta selection:text-white">
+  <div class="noise-overlay"></div>
+  <!-- TopNavBar Component -->
+  <nav
+    class="fixed top-0 w-full z-50 border-b border-white/10 bg-zinc-950/90 backdrop-blur-xl transition-all duration-300 ease-out">
+    <div class="flex justify-between items-center px-8 h-20 max-w-[1440px] mx-auto">
+      <div class="text-xl font-black tracking-tighter text-white uppercase font-['Space_Grotesk']">QR MAHMOOD</div>
+      <div class="hidden md:flex space-x-8">
+        <a class="font-['Space_Grotesk'] tracking-tight font-medium text-pink-500 border-b-2 border-pink-500 pb-1 hover:opacity-80 transition-opacity cursor-pointer"
+          href="#">Work</a>
+        <a class="font-['Space_Grotesk'] tracking-tight font-medium text-zinc-400 hover:text-white transition-colors hover:opacity-80 transition-opacity cursor-pointer"
+          href="#">Lab</a>
+        <a class="font-['Space_Grotesk'] tracking-tight font-medium text-zinc-400 hover:text-white transition-colors hover:opacity-80 transition-opacity cursor-pointer"
+          href="#">Archive</a>
+        <a class="font-['Space_Grotesk'] tracking-tight font-medium text-zinc-400 hover:text-white transition-colors hover:opacity-80 transition-opacity cursor-pointer"
+          href="#">About</a>
+      </div>
+      <button
+        class="bg-accent-magenta text-white px-6 py-2 rounded-full font-label-caps text-label-caps hover:opacity-80 transition-opacity cursor-pointer">Hire
+        Me</button>
+    </div>
+  </nav>
+  <main class="pt-32">
+    <!-- Hero Section -->
+    <section
+      class="min-h-[819px] flex flex-col justify-center items-center relative px-8 max-w-[1440px] mx-auto mb-section-gap">
+      <div class="z-10 text-center flex flex-col items-center">
+        <h1 class="font-display text-display text-white mb-4 leading-none relative group">
+          <span class="block text-zinc-500 text-headline-md font-headline-md mb-4 tracking-widest uppercase">Creative
+            Developer</span>
+          Quazi Rihal <br /> Mahmood
+        </h1>
+        <p class="font-body-lg text-body-lg text-zinc-400 max-w-2xl mt-8 text-center">
+          Engineering precision in the digital realm. High-contrast minimalism meets functional motion.
+        </p>
+      </div>
+      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-50">
+        <span class="font-label-caps text-label-caps mb-2 text-white">Scroll</span>
+        <span class="material-symbols-outlined text-white animate-bounce">arrow_downward</span>
+      </div>
+    </section>
+    <!-- Project Showcase Section (Bento Grid) -->
+    <section class="px-8 max-w-[1440px] mx-auto mb-section-gap">
+      <h2 class="font-headline-lg text-headline-lg text-white mb-16 border-b border-white/10 pb-4">Selected Work</h2>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <!-- Large Featured Project -->
+        <div
+          class="col-span-1 md:col-span-8 group relative overflow-hidden rounded-xl border border-white/10 aspect-[16/9] bg-surface-container-lowest">
+          <img alt="Cybernetic aesthetic"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 mix-blend-luminosity group-hover:mix-blend-normal"
+            data-alt="Abstract sleek dark metallic surface with glowing neon pink accents in a futuristic cyberspace setting"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuOi8z_sQcK3SKOiL9CrjquHUL1srqq7-MMNqYxlrmoFHkJaU69JcMZI9S4aQQ15XZvY3GBwSfFnfbALzTIHnwlCkh4YWDcN5bWeu7Iyu7RItJde3Yl96JYU3LVMQNbjpce-weMzXRAU4xY_jOwtFYDxtV4EV4rv2ZRTbEhAKWE-lVN0Q0xXDfO26XquRAkal8bh636ZOeOhoV3OYtcV9klPbXs0P8-6Dfm9h2qWtQFk3UmkmMBGvQI8H564zSW5FHlosGM_HT8A" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-8 w-full">
+            <p class="font-label-caps text-label-caps text-accent-magenta mb-2">01 — WebGL Experience</p>
+            <h3 class="font-headline-md text-headline-md text-white">Neural Nexus</h3>
+          </div>
+        </div>
+        <!-- Tall Portrait Project -->
+        <div
+          class="col-span-1 md:col-span-4 group relative overflow-hidden rounded-xl border border-white/10 aspect-[4/5] md:aspect-auto bg-surface-container-lowest">
+          <img alt="Abstract dark aesthetic"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 mix-blend-luminosity group-hover:mix-blend-normal"
+            data-alt="Minimalist monochromatic abstract 3D geometry floating in deep black void with subtle edge lighting"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa0zvUrOm5vvgYEHW4dti-khfIKRryja9JPT7eGqBrxzbFGoKoZLtMoGIg3us-xEFBqvSyQYGEuyv_5NhKf0YjUSsby6B4JKCQcSkN3qizyFqemaDo4BCSssELWXA5ULu032jhQfQejArGbUdoU0KRFlYyW2YdaLSt6HcZ0ljMtXoaNE-AjSl64a0s-rduPchLiT-xkZ3SBrrghH4OyRJniTQRvf_RhPcpGxxhFN2afVqQfFNGL7eCUjeGx9cMimGK0-CKHzZq-g" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-8 w-full">
+            <p class="font-label-caps text-label-caps text-accent-magenta mb-2">02 — Identity System</p>
+            <h3 class="font-headline-md text-headline-md text-white">Void Protocol</h3>
+          </div>
+        </div>
+        <!-- Square Project -->
+        <div
+          class="col-span-1 md:col-span-4 group relative overflow-hidden rounded-xl border border-white/10 aspect-square bg-surface-container-lowest">
+          <img alt="Monochrome tech"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 mix-blend-luminosity group-hover:mix-blend-normal"
+            data-alt="High contrast macro photography of intricate circuit board routing illuminated by stark white light on black"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGA3PvWAF78msgS6HE_ST4KvVntIbpKEFJxt7MlIaGsPEWbIDnWHlx8iupoY-52WsbMp8xoYcWk4XLu3UeSOG_4NWhnEIL4-bRbXBR03vG0McoSh1Hj9dr209WZkbm4wBUHBObrBpFP73R4k1ywXpJEpZoOrz9L8KgyCUyIDBxvKdYXMblJW-S-R9O4prPJZLCBsm1pdN8HepBwsekd1e-32jsWyjPxmx-3ux81efM9rlbXrSKdURNLtfBNznghlV7jAQ1xvVfag" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-8 w-full">
+            <p class="font-label-caps text-label-caps text-accent-magenta mb-2">03 — FinTech</p>
+            <h3 class="font-headline-md text-headline-md text-white">BlackBox OS</h3>
+          </div>
+        </div>
+        <!-- Wide Project -->
+        <div
+          class="col-span-1 md:col-span-8 group relative overflow-hidden rounded-xl border border-white/10 aspect-[16/9] md:aspect-auto bg-surface-container-lowest">
+          <img alt="Dark mode interface"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 mix-blend-luminosity group-hover:mix-blend-normal"
+            data-alt="Sleek dark mode digital dashboard interface glowing on a screen in a dimly lit studio environment"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAStdlPn9mqLE5yt-x9whmxrd8CL2fHdn4q-ZjvJyrLTdzCJxelRwwKg90f6DLQJl0WWDcJdbwU2vAB7fIFni9ZNGDdR7nTb3A3ggG-VRx2HIB-YZ2NusiiNoISXGScHrV6Q_mTdtT8eVkAgdII4ttV7zw4A_4lDcRcRCCLrdX0HXGd91EZiQrhgSZfmJKWc9ACkwmTJg8wTN31txRo7Ea4vdvMKIIeItExkwwozio1w8DoZuVGgOkZTjGC1oAgg0RO1FOT27fjtw" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-8 w-full">
+            <p class="font-label-caps text-label-caps text-accent-magenta mb-2">04 — E-Commerce</p>
+            <h3 class="font-headline-md text-headline-md text-white">Aero Dynamics</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Expertise Section -->
+    <section class="px-8 max-w-[1440px] mx-auto mb-section-gap">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="font-headline-lg text-headline-lg text-white mb-6">Technical <br /> Arsenal</h2>
+          <p class="font-body-md text-body-md text-zinc-400 mb-8 max-w-md">
+            Forging digital experiences through a strict adherence to performance, accessibility, and high-fidelity
+            aesthetics.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="p-6 border border-white/10 rounded-lg bg-surface-container-lowest">
+            <span class="material-symbols-outlined text-accent-magenta mb-4 text-3xl">code</span>
+            <h4 class="font-headline-md text-xl font-medium text-white mb-2">Frontend</h4>
+            <p class="font-body-md text-sm text-zinc-500">React, Vue, WebGL, Tailwind</p>
+          </div>
+          <div class="p-6 border border-white/10 rounded-lg bg-surface-container-lowest">
+            <span class="material-symbols-outlined text-accent-magenta mb-4 text-3xl">terminal</span>
+            <h4 class="font-headline-md text-xl font-medium text-white mb-2">Backend</h4>
+            <p class="font-body-md text-sm text-zinc-500">Node.js, Python, PostgreSQL</p>
+          </div>
+          <div class="p-6 border border-white/10 rounded-lg bg-surface-container-lowest">
+            <span class="material-symbols-outlined text-accent-magenta mb-4 text-3xl">design_services</span>
+            <h4 class="font-headline-md text-xl font-medium text-white mb-2">Design</h4>
+            <p class="font-body-md text-sm text-zinc-500">Figma, Motion, Interaction</p>
+          </div>
+          <div class="p-6 border border-white/10 rounded-lg bg-surface-container-lowest">
+            <span class="material-symbols-outlined text-accent-magenta mb-4 text-3xl">speed</span>
+            <h4 class="font-headline-md text-xl font-medium text-white mb-2">Optimization</h4>
+            <p class="font-body-md text-sm text-zinc-500">Web Vitals, SEO, Accessibility</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer Component -->
+  <footer
+    class="w-full mt-40 border-t border-white/5 bg-zinc-950 ease-in-out duration-500 flex flex-col md:flex-row justify-between items-center px-12 py-24 max-w-[1440px] mx-auto">
+    <div class="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] font-bold text-zinc-600 mb-8 md:mb-0">
+      © 2024 Quazi Rihal Mahmood. Engineered for precision.
+    </div>
+    <div class="flex space-x-6">
+      <a class="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] font-bold text-zinc-600 hover:text-pink-500 transition-colors"
+        href="#">Source</a>
+      <a class="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] font-bold text-zinc-600 hover:text-pink-500 transition-colors"
+        href="#">Connect</a>
+      <a class="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] font-bold text-zinc-600 hover:text-pink-500 transition-colors"
+        href="#">Resume</a>
+      <a class="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] font-bold text-zinc-600 hover:text-pink-500 transition-colors"
+        href="#">Email</a>
+    </div>
+  </footer>
+</body>
+
+</html>
