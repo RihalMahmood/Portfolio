@@ -9,7 +9,7 @@ export default function Projects({ setHovering }) {
           <div className="section-label">Explore Work</div>
           <h2>A Showcase of My<br />Latest Projects</h2>
         </div>
-        <a href="#" className="view-all" {...ho}>View all projects ↗</a>
+        <a href="https://github.com/RihalMahmood?tab=repositories" target="_blank" rel="noopener noreferrer" className="view-all" {...ho}>View all projects ↗</a>
       </div>
 
       <div className="projects-grid">
@@ -21,7 +21,7 @@ export default function Projects({ setHovering }) {
           >
             <div className="project-img">
               {p.image ? (
-                <img src={p.image} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <img className="project-custom-img" src={p.image} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               ) : (
                 <div className="project-img-inner" style={{ background: p.bg }}>
                   <span style={{ fontSize: 56 }}>{p.emoji}</span>

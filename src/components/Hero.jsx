@@ -11,7 +11,7 @@ export default function Hero({ setHovering }) {
       <svg style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, pointerEvents: "none" }}>
         <path d="M -100 200 Q 300 500 500 -100" stroke="rgba(255,255,255,0.05)" fill="transparent" strokeWidth="1" />
         <circle r="2" fill="var(--accent)">
-          <animateMotion dur="12s" repeatCount="indefinite" path="M -100 200 Q 300 500 500 -100" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="linear" />
+          <animateMotion dur="12s" repeatCount="indefinite" path="M -100 200 Q 300 500 500 -100" keyPoints="1;0;1" keyTimes="0;0.5;1" calcMode="linear" />
         </circle>
       </svg>
 
