@@ -1,3 +1,4 @@
+import { socials } from "../data";
 
 export default function Hero({ setHovering }) {
   const ho = { onMouseEnter: () => setHovering(true), onMouseLeave: () => setHovering(false) };
@@ -59,9 +60,9 @@ export default function Hero({ setHovering }) {
               <span className="label">T</span> +880 1740350047
             </a>
             <div className="social-row">
-              {["GitHub", "LinkedIn", "Twitter", "CodePen"].map(s => (
-                <a key={s} href="#" className="social-link" {...ho}>
-                  <span className="slash">/</span>{s}
+              {socials.map(s => (
+                <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer" className="social-link" {...ho}>
+                  <span className="slash">/</span>{s.name}
                 </a>
               ))}
             </div>

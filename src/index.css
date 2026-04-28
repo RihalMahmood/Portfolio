@@ -939,3 +939,24 @@ footer a:hover {
     padding-top: 0;
   }
 }
+
+/* ── LOADER ── */
+.loader-container {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-text {
+  font-size: clamp(18px, 3vw, 28px);
+  font-weight: 500;
+  color: #ffffff;
+  font-family: var(--font);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

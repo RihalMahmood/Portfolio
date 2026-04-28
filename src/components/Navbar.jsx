@@ -6,8 +6,8 @@ export default function Navbar({ scrolled, setHovering }) {
         <span />
         <div className="nav-links">
           <a href="#top">Home</a>
-          <a href="#work">Projects</a>
           <a href="#skills">Skills</a>
+          <a href="#work">Projects</a>
           <a href="#contact">Contact</a>
         </div>
         <button className="nav-cta" {...ho}>Hire Me</button>

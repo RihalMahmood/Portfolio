@@ -2,7 +2,7 @@
 export const skills = [
     { cat: "Frontend", items: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "HTML & CSS", "Framer Motion"] },
     { cat: "Backend & DB", items: ["Node.js", "Express.js", "Python", "Django", "PostgreSQL", "MongoDB"] },
-    { cat: "Tools & Cloud", items: ["Git & GitHub", "Docker", "AWS", "Linux", "Figma", "Postman"] },
+    { cat: "Tools & Cloud", items: ["Git & GitHub", "Docker", "Linux", "Postman", "Vercel"] },
 ];
 export const projects = [
     {
@@ -38,4 +38,10 @@ export const contacts = [
     { icon: "E", label: "Email", val: "rihalmahmood@gmail.com", href: "mailto:rihalmahmood@gmail.com" },
     { icon: "GH", label: "GitHub", val: "github.com/RihalMahmood", href: "https://github.com/RihalMahmood" },
     { icon: "LI", label: "LinkedIn", val: "linkedin.com/in/quazirihalmahmood", href: "https://www.linkedin.com/in/quazi-rihal-mahmood-05a59b362/" },
+];
+
+export const socials = [
+    { name: "GitHub", url: "https://github.com/RihalMahmood" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/quazi-rihal-mahmood-05a59b362/" },
+    { name: "Instagram", url: "https://www.instagram.com/quazi_rihal/" },
 ];
