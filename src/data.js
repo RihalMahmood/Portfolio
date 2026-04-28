@@ -6,20 +6,22 @@ export const skills = [
 ];
 export const projects = [
     {
-        id: "01", wide: true, emoji: "🔗", bg: "#0e1520",
-        title: "DevConnect", tag: "Full Stack · Featured",
-        desc: "A GitHub-style developer social network — follow devs, showcase repos, post updates, and collaborate. Built with a real-time notification system using WebSockets.",
-        techs: ["React", "Node.js", "MongoDB", "Socket.io", "JWT"],
+        id: "01", emoji: "🔗", bg: "#0e1520",
+        image: "/images/Colossus.png",
+        title: "Colossus", tag: "Full Stack · Featured",
+        desc: "Many drives. One titan. Merge multiple Google Drive accounts into a single unified storage pool with automatic file chunking.",
+        techs: ["React", "Vite", "Tailwind CSS", "DaisyUI", "Node.js", "Express", "MongoDB + Mongoose", "JWT", "Google OAuth 2.0", "Google Drive API v3"],
     },
     {
         id: "02", emoji: "🧠", bg: "#0e1a12",
-        title: "AlgoViz",
+        image: "/images/DraftSense.png",
+        title: "DraftSense",
         desc: "Interactive step-by-step visualizer for classic algorithms — sorting, pathfinding, tree traversal. Used by 400+ students.",
         techs: ["React", "Canvas API", "TypeScript"],
     },
     {
         id: "03", emoji: "🛒", bg: "#1a0e14",
-        title: "ShopSense",
+        title: "Gazi Fan Commercial Website",
         desc: "ML-powered e-commerce engine with product recommendations, sentiment analysis on reviews, and real-time inventory forecasting.",
         techs: ["Python", "FastAPI", "scikit-learn", "Redis"],
     },

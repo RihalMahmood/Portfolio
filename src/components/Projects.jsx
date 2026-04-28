@@ -20,9 +20,13 @@ export default function Projects({ setHovering }) {
             {...ho}
           >
             <div className="project-img">
-              <div className="project-img-inner" style={{ background: p.bg }}>
-                <span style={{ fontSize: 56 }}>{p.emoji}</span>
-              </div>
+              {p.image ? (
+                <img src={p.image} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              ) : (
+                <div className="project-img-inner" style={{ background: p.bg }}>
+                  <span style={{ fontSize: 56 }}>{p.emoji}</span>
+                </div>
+              )}
             </div>
             <div className="project-body">
               <span className="project-num">// {p.id}</span>

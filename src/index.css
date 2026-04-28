@@ -220,7 +220,7 @@ nav.scrolled {
 }
 
 .hero-name-item {
-  font-size: clamp(140px, 20vw, 320px); /* Massive name */
+  font-size: clamp(100px, 15vw, 220px); /* Smaller name */
   font-weight: 800;
   letter-spacing: -6px;
   line-height: 1;
