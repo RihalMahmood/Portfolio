@@ -13,10 +13,17 @@ import CustomCursor from "./components/CustomCursor";
 import './index.css';
 
 export default function App() {
+  const [theme, setTheme] = useState("dark");
   const [isLoading, setIsLoading] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("top");
   const [hovering, setHovering] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -69,7 +76,7 @@ export default function App() {
         }}
       >
         <CustomCursor hovering={hovering} />
-        <Navbar scrolled={scrolled} hovering={hovering} setHovering={setHovering} activeSection={activeSection} />
+        <Navbar scrolled={scrolled} hovering={hovering} setHovering={setHovering} activeSection={activeSection} theme={theme} toggleTheme={toggleTheme} />
         <Hero hovering={hovering} setHovering={setHovering} isLoading={isLoading} />
         <Marquee />
         <Skills hovering={hovering} setHovering={setHovering} />

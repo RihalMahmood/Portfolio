@@ -4,7 +4,7 @@ const devicons = { 'JavaScript': 'javascript/javascript-original.svg', 'TypeScri
 
 const marqueeItems = coreStacks.map((stack, i) => (
     <span key={i} className={`marquee-item ${i % 2 === 0 ? "filled" : ""}`} style={{ padding: "0 20px", display: "flex", alignItems: "center", gap: "12px" }}>
-        <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${devicons[stack]}`} alt={stack} style={{ width: "32px", height: "32px", filter: "grayscale(100%) brightness(200%)" }} />
+        <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${devicons[stack]}`} alt={stack} className="marquee-icon" />
         {stack}
     </span>
 ));
