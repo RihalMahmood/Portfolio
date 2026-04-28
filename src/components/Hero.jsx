@@ -1,6 +1,7 @@
 import { socials } from "../data";
+import { motion } from "framer-motion";
 
-export default function Hero({ setHovering }) {
+export default function Hero({ setHovering, isLoading }) {
   const ho = { onMouseEnter: () => setHovering(true), onMouseLeave: () => setHovering(false) };
 
   /* Repeat the name enough times so the track is always wider than the viewport */
@@ -35,7 +36,18 @@ export default function Hero({ setHovering }) {
           </div>
 
           {/* Profile picture pinned to the centre of the band */}
-          <img className="hero-band-img" src="/images/Riju.png" alt="Quazi Rihal Mahmood" />
+          <motion.img 
+            className="hero-band-img" 
+            src="/images/Riju.png" 
+            alt="Quazi Rihal Mahmood" 
+            initial={{ y: "calc(-50% + 60px)", x: "-50%", opacity: 0 }}
+            animate={{ 
+              y: isLoading ? "calc(-50% + 60px)" : "-50%", 
+              x: "-50%", 
+              opacity: isLoading ? 0 : 1 
+            }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: isLoading ? 0 : 0.4 }}
+          />
         </div>
       </div>
 

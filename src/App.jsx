@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Loader from "./components/Loader";
 
 import Navbar from "./components/Navbar";
@@ -39,26 +39,21 @@ export default function App() {
         {isLoading && <Loader setLoadingComplete={() => setIsLoading(false)} />}
       </AnimatePresence>
 
-      <motion.div
+      <div
         key="main-app"
-        initial={{ y: "100vh" }}
-        animate={{ y: isLoading ? "100vh" : 0 }}
-        transition={{ duration: 1, ease: [0.77, 0, 0.175, 1] }}
         style={{
-          position: isLoading ? "fixed" : "relative",
-          width: "100%",
           height: isLoading ? "100vh" : "auto",
           overflow: isLoading ? "hidden" : "visible"
         }}
       >
         <CustomCursor hovering={hovering} />
         <Navbar scrolled={scrolled} hovering={hovering} setHovering={setHovering} />
-        <Hero hovering={hovering} setHovering={setHovering} />
+        <Hero hovering={hovering} setHovering={setHovering} isLoading={isLoading} />
         <Marquee />
         <Skills hovering={hovering} setHovering={setHovering} />
         <Projects hovering={hovering} setHovering={setHovering} />
         <Contact hovering={hovering} setHovering={setHovering} />
-      </motion.div>
+      </div>
     </>
   );
 }
