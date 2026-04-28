@@ -15,6 +15,7 @@ import './index.css';
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("top");
   const [hovering, setHovering] = useState(false);
 
   useEffect(() => {
@@ -33,6 +34,27 @@ export default function App() {
     return () => obs.disconnect();
   }, []);
 
+  useEffect(() => {
+    const sections = ["top", "skills", "work", "contact"];
+    const obs = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <>
       <AnimatePresence>
@@ -47,7 +69,7 @@ export default function App() {
         }}
       >
         <CustomCursor hovering={hovering} />
-        <Navbar scrolled={scrolled} hovering={hovering} setHovering={setHovering} />
+        <Navbar scrolled={scrolled} hovering={hovering} setHovering={setHovering} activeSection={activeSection} />
         <Hero hovering={hovering} setHovering={setHovering} isLoading={isLoading} />
         <Marquee />
         <Skills hovering={hovering} setHovering={setHovering} />

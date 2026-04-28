@@ -23,7 +23,7 @@ export default function Skills({ setHovering }) {
                 or exploring what's next in the world of web development. I bring both{" "}
                 <strong>engineering rigour and design sensibility</strong> to every project.
             </p>
-            <a href="#" className="resume-link reveal d3" {...ho}>
+            <a href="/files/CV.pdf" target="_blank" rel="noopener noreferrer" className="resume-link reveal d3" {...ho}>
                 View My Resume ↗
             </a>
             <div className="stats-row">
