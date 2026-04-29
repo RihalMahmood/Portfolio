@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Loader from "./components/Loader";
 
 import Navbar from "./components/Navbar";
@@ -13,6 +13,13 @@ import CustomCursor from "./components/CustomCursor";
 import AboutPage from "./components/AboutPage";
 
 import './index.css';
+
+// Resets scroll to top on every route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
 
 function HomePage({ theme, toggleTheme }) {
   // Only show the loader on the very first visit in this browser session.
@@ -60,6 +67,19 @@ function HomePage({ theme, toggleTheme }) {
 
     return () => obs.disconnect();
   }, []);
+
+  const location = useLocation();
+
+  // After navigating from About page, auto-scroll to the requested section
+  useEffect(() => {
+    if (!isLoading && location.state?.scrollTo) {
+      const el = document.getElementById(location.state.scrollTo);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 100);
+      }
+      window.history.replaceState({}, "");
+    }
+  }, [isLoading, location.state]);
 
   return (
     <>
@@ -109,6 +129,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage theme={theme} toggleTheme={toggleTheme} />} />
         <Route path="/about" element={<AboutPage />} />

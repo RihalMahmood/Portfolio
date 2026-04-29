@@ -1,10 +1,18 @@
 import { motion } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Navbar({ scrolled, setHovering, activeSection, theme, toggleTheme, isLoading }) {
   const ho = { onMouseEnter: () => setHovering(true), onMouseLeave: () => setHovering(false) };
   const location = useLocation();
+  const navigate = useNavigate();
   const isAbout = location.pathname === "/about";
+
+  // When on the About page, navigate to home and carry the target section
+  // as router state so HomePage can scroll to it after mounting.
+  const goToSection = (sectionId) => (e) => {
+    e.preventDefault();
+    navigate("/", { state: { scrollTo: sectionId } });
+  };
 
   return (
     <motion.nav
@@ -17,12 +25,12 @@ export default function Navbar({ scrolled, setHovering, activeSection, theme, to
         <span />
         <div className="nav-links">
           {isAbout ? (
-            /* On the About page, Home/Skills/Projects/Contact scroll-anchor links go back to / */
+            /* On the About page — programmatically navigate to home + scroll target */
             <>
-              <Link to="/#top" className={activeSection === "top" ? "active" : ""} {...ho}>Home</Link>
-              <Link to="/#skills" className={activeSection === "skills" ? "active" : ""} {...ho}>Skills</Link>
-              <Link to="/#work" className={activeSection === "work" ? "active" : ""} {...ho}>Projects</Link>
-              <Link to="/#contact" className={activeSection === "contact" ? "active" : ""} {...ho}>Contact</Link>
+              <a href="/" onClick={goToSection("top")} className="" {...ho}>Home</a>
+              <a href="/" onClick={goToSection("skills")} className="" {...ho}>Skills</a>
+              <a href="/" onClick={goToSection("work")} className="" {...ho}>Projects</a>
+              <a href="/" onClick={goToSection("contact")} className="" {...ho}>Contact</a>
               <Link to="/about" className="active" {...ho}>About</Link>
             </>
           ) : (
