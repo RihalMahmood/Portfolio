@@ -25,7 +25,7 @@ export default function Hero({ setHovering, isLoading }) {
           animate={{ y: isLoading ? -30 : 0, opacity: isLoading ? 0 : 1 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 1.4 }}
         >
-          Hey, <span className="wave">👋</span> I'm a Full Stack Developer
+          Hey, <span className="wave">👋</span> I'm a Passionate Coder
         </motion.div>
 
         {/* ── Marquee band with photo in the middle ── */}
