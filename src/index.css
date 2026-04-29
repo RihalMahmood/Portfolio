@@ -1106,3 +1106,335 @@ footer a:hover {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+/* ══════════════════════════════════════════
+   ── ABOUT PAGE ──
+══════════════════════════════════════════ */
+
+.about-page {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* ── Intro section ── */
+.about-intro-section {
+  padding: 140px 40px 100px;
+}
+
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-intro-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.about-headline {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1.1;
+  margin-bottom: 28px;
+}
+
+.about-headline-accent {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+  text-shadow: 0 0 20px var(--accent-glow);
+}
+
+.about-bio {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 18px;
+  max-width: 580px;
+}
+
+.about-bio strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.about-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.about-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--accent);
+  color: var(--bg);
+  padding: 13px 28px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  text-decoration: none;
+  cursor: none;
+  transition: opacity .25s, transform .25s, box-shadow .25s;
+}
+
+.about-resume-btn:hover {
+  opacity: .88;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px var(--button-shadow);
+}
+
+.about-resume-icon {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.about-contact-link {
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  transition: color .2s, border-color .2s;
+  cursor: none;
+  letter-spacing: .3px;
+}
+
+.about-contact-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ── Right column: photo + stat cards ── */
+.about-intro-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: sticky;
+  top: 120px;
+}
+
+.about-photo-wrap {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  aspect-ratio: 3/4;
+  max-height: 440px;
+}
+
+.about-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: grayscale(10%);
+  transition: filter .4s, transform .5s;
+}
+
+.about-photo-wrap:hover .about-photo {
+  filter: grayscale(0%);
+  transform: scale(1.03);
+}
+
+.about-photo-glow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0, 242, 255, 0.08), transparent);
+  pointer-events: none;
+}
+
+[data-theme='light'] .about-photo-glow {
+  background: linear-gradient(to top, rgba(0, 134, 143, 0.06), transparent);
+}
+
+.about-stat-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.about-stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-color .25s, transform .25s;
+}
+
+.about-stat-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.about-stat-num {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.about-stat-lbl {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: .4px;
+  line-height: 1.4;
+}
+
+/* ══════════════════════════════════════════
+   ── JOURNEY / TIMELINE ──
+══════════════════════════════════════════ */
+
+.journey-section {
+  padding: 80px 40px 120px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.journey-heading {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+.journey-sub {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 500px;
+  margin-bottom: 64px;
+  font-weight: 300;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 760px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 0 28px;
+}
+
+.timeline-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6px;
+}
+
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px currentColor;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-line {
+  width: 1px;
+  flex: 1;
+  min-height: 48px;
+  background: var(--border);
+  margin-top: 4px;
+}
+
+.timeline-card {
+  padding-bottom: 48px;
+}
+
+.timeline-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.timeline-type {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.timeline-period {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: .4px;
+}
+
+.timeline-role {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -.3px;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.timeline-org {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: .4px;
+  margin-bottom: 10px;
+  font-family: var(--mono);
+}
+
+.timeline-desc {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 600px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .about-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .about-intro-visual {
+    position: static;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .about-intro-section {
+    padding: 120px 24px 80px;
+  }
+
+  .journey-section {
+    padding: 60px 24px 80px;
+  }
+
+  .about-stat-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

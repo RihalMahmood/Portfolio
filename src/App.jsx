@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Loader from "./components/Loader";
 
 import Navbar from "./components/Navbar";
@@ -9,21 +10,15 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import CustomCursor from "./components/CustomCursor";
+import AboutPage from "./components/AboutPage";
 
 import './index.css';
 
-export default function App() {
-  const [theme, setTheme] = useState("dark");
+function HomePage({ theme, toggleTheme }) {
   const [isLoading, setIsLoading] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("top");
   const [hovering, setHovering] = useState(false);
-
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -39,7 +34,7 @@ export default function App() {
     );
     els.forEach(el => obs.observe(el));
     return () => obs.disconnect();
-  }, []);
+  }, [isLoading]);
 
   useEffect(() => {
     const sections = ["top", "skills", "work", "contact"];
@@ -84,5 +79,24 @@ export default function App() {
         <Contact hovering={hovering} setHovering={setHovering} />
       </div>
     </>
+  );
+}
+
+export default function App() {
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage theme={theme} toggleTheme={toggleTheme} />} />
+        <Route path="/about" element={<AboutPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
