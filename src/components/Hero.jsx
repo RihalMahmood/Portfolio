@@ -11,17 +11,22 @@ export default function Hero({ setHovering, isLoading }) {
     <section className="hero" id="top">
       {/* Decorative SVG path */}
       <svg style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, pointerEvents: "none" }}>
-        <path d="M -100 200 Q 300 500 500 -100" stroke="rgba(255,255,255,0.05)" fill="transparent" strokeWidth="1" />
-        <circle r="2" fill="var(--accent)">
-          <animateMotion dur="12s" repeatCount="indefinite" path="M -100 200 Q 300 500 500 -100" keyPoints="1;0;1" keyTimes="0;0.5;1" calcMode="linear" />
+        <path d="M -100 200 Q 300 500 500 -100" stroke="var(--border)" strokeWidth="1" fill="transparent" />
+        <circle r="3" fill="none" stroke="var(--accent)" strokeWidth="1.5">
+          <animateMotion dur="22s" repeatCount="indefinite" path="M -100 200 Q 300 500 500 -100" keyPoints="1;0;1" keyTimes="0;0.5;1" calcMode="linear" />
         </circle>
       </svg>
 
       <div className="hero-top-content">
         {/* ── Greeting line ── */}
-        <div className="hero-greeting">
+        <motion.div
+          className="hero-greeting"
+          initial={{ y: -30, opacity: 0 }}
+          animate={{ y: isLoading ? -30 : 0, opacity: isLoading ? 0 : 1 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 1.4 }}
+        >
           Hey, <span className="wave">👋</span> I'm a Full Stack Developer
-        </div>
+        </motion.div>
 
         {/* ── Marquee band with photo in the middle ── */}
         <div className="hero-marquee-band">
@@ -36,15 +41,15 @@ export default function Hero({ setHovering, isLoading }) {
           </div>
 
           {/* Profile picture pinned to the centre of the band */}
-          <motion.img 
-            className="hero-band-img" 
-            src="/images/Riju.png" 
-            alt="Quazi Rihal Mahmood" 
+          <motion.img
+            className="hero-band-img"
+            src="/images/Riju.png"
+            alt="Quazi Rihal Mahmood"
             initial={{ y: "calc(-50% + 60px)", x: "-50%", opacity: 0 }}
-            animate={{ 
-              y: isLoading ? "calc(-50% + 60px)" : "-50%", 
-              x: "-50%", 
-              opacity: isLoading ? 0 : 1 
+            animate={{
+              y: isLoading ? "calc(-50% + 60px)" : "-50%",
+              x: "-50%",
+              opacity: isLoading ? 0 : 1
             }}
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: isLoading ? 0 : 0.4 }}
           />

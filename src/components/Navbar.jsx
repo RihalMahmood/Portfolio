@@ -1,7 +1,14 @@
-export default function Navbar({ scrolled, setHovering, activeSection, theme, toggleTheme }) {
+import { motion } from "framer-motion";
+
+export default function Navbar({ scrolled, setHovering, activeSection, theme, toggleTheme, isLoading }) {
   const ho = { onMouseEnter: () => setHovering(true), onMouseLeave: () => setHovering(false) };
   return (
-    <nav className={scrolled ? "scrolled" : ""}>
+    <motion.nav
+      className={scrolled ? "scrolled" : ""}
+      initial={{ y: -60, opacity: 0 }}
+      animate={{ y: isLoading ? -60 : 0, opacity: isLoading ? 0 : 1 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 1.2 }}
+    >
       <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 40px" }}>
         <span />
         <div className="nav-links">
@@ -31,6 +38,6 @@ export default function Navbar({ scrolled, setHovering, activeSection, theme, to
           <button className="nav-cta" {...ho}>Hire Me</button>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 }

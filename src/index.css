@@ -218,8 +218,6 @@ nav.scrolled {
   display: flex;
   align-items: center;
   gap: 8px;
-  opacity: 0;
-  animation: fadeUp .7s .2s forwards;
 }
 
 .wave {

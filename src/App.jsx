@@ -76,7 +76,7 @@ export default function App() {
         }}
       >
         <CustomCursor hovering={hovering} />
-        <Navbar scrolled={scrolled} hovering={hovering} setHovering={setHovering} activeSection={activeSection} theme={theme} toggleTheme={toggleTheme} />
+        <Navbar scrolled={scrolled} hovering={hovering} setHovering={setHovering} activeSection={activeSection} theme={theme} toggleTheme={toggleTheme} isLoading={isLoading} />
         <Hero hovering={hovering} setHovering={setHovering} isLoading={isLoading} />
         <Marquee />
         <Skills hovering={hovering} setHovering={setHovering} />
