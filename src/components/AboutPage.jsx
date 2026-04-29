@@ -10,35 +10,70 @@ const journey = [
     role: "Private Tutor",
     org: "Self-employed",
     type: "Work",
-    desc: "Teaching Computer Science, Mathematics (Calculus I, II, III), Statistics, and Mechanics to O & A Level students.",
+    desc: "Teaching Computer Science, Mathematics, Physics and Chemistry to O & A Level students and University Undergrads",
   },
   {
     period: "2022 – 2026",
     role: "BSc in Computer Science & Engineering",
-    org: "University",
+    org: "North South University",
     type: "Education",
     desc: "Graduating in 2026 with a focus on software engineering, algorithms, and full-stack web development. Worked on multiple real-world projects spanning MERN stack, AI tooling, and game development.",
   },
   {
-    period: "2025",
-    role: "Freelance Full-Stack Developer",
-    org: "Various Clients",
-    type: "Work",
-    desc: "Delivered production-ready web applications using React, Node.js, and MongoDB. Built tools for e-commerce, data management, and AI-assisted workflows.",
+    period: "2022",
+    role: "Course Project",
+    org: "North South University",
+    type: "Project",
+    desc: "Made a Chess game and engine using Java and JavaFX as Graphical User Interface (GUI) for the course Programming Language-II (Java).",
   },
   {
-    period: "2024",
-    role: "Open Source & Personal Projects",
+    period: "2022",
+    role: "Course Project",
+    org: "North South University",
+    type: "Project",
+    desc: "Made a Restaurant Management System using Java and JavaFX for one of my friend's course project.",
+  },
+  {
+    period: "2023",
+    role: "Course Project",
+    org: "North South University",
+    type: "Project",
+    desc: "Made a Bus Management System using HTML, CSS, PHP and MySQL for the course Introduction to Database Systems.",
+  },
+  {
+    period: "July 2024 - January 2026",
+    role: "Teaching Assistant (TA)",
+    org: "North South University",
+    type: "Work",
+    desc: "Worked as a TA for the courses Programming Language, Data Structure and Algorithms, Database, Digital Logic and Computer Architecture.",
+  },
+  {
+    period: "2025",
+    role: "Course Projects",
+    org: "North South University",
+    type: "Project",
+    desc: "Developed Colossus (Google Drive aggregator) for the course Software Engineering and later for my personal use",
+  },
+  {
+    period: "2025",
+    role: "Capstone Project",
+    org: "North South University",
+    type: "Project",
+    desc: "Developed eKYC system for banks using Blockchain technology and React with my group.",
+  },
+  {
+    period: "2026",
+    role: "Commercial Project",
+    org: "Gazi Fan Company Limited",
+    type: "Work",
+    desc: "Developed a commerical website for Gazi Fan Group.",
+  },
+  {
+    period: "2026",
+    role: "Personal Project",
     org: "GitHub",
     type: "Project",
-    desc: "Developed and shipped Colossus (Google Drive aggregator), DraftSense (AI LoL draft advisor), and a full chess engine in Java with JavaFX.",
-  },
-  {
-    period: "2019 – 2022",
-    role: "High School (A Levels & O Levels)",
-    org: "Secondary Education",
-    type: "Education",
-    desc: "Completed A Levels with distinction. Discovered a passion for programming through self-taught Python and competitive problem-solving during this period.",
+    desc: "Developed DraftSense, a real time AI powered draft adviser for League of Legends.",
   },
 ];
 
@@ -151,7 +186,7 @@ export default function AboutPage() {
                 custom={2}
               >
                 Hey! I'm{" "}
-                <strong>Quazi Rihal Mahmood</strong> — a Computer Science & Engineering
+                <strong>Quazi Rihal Mahmood</strong> - a Computer Science & Engineering
                 graduate (2026) passionate about turning complex problems into
                 elegant, performant software. I thrive at the intersection of
                 thoughtful design and clean engineering.
@@ -246,44 +281,58 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="timeline">
-              {journey.map((item, i) => (
-                <motion.div
-                  key={i}
-                  className="timeline-item reveal"
-                  style={{ "--delay": `${i * 0.12}s` }}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.2 }}
-                  custom={i}
-                >
-                  {/* Connector line + dot */}
-                  <div className="timeline-connector">
-                    <div
-                      className="timeline-dot"
-                      style={{ background: typeColors[item.type] ?? "var(--accent)" }}
-                    />
-                    {i < journey.length - 1 && <div className="timeline-line" />}
-                  </div>
+            <div className="timeline-alt">
+              {/* Central vertical line */}
+              <div className="timeline-alt-spine" />
 
-                  {/* Card */}
-                  <div className="timeline-card">
-                    <div className="timeline-meta">
-                      <span
-                        className="timeline-type"
-                        style={{ color: typeColors[item.type] ?? "var(--accent)" }}
-                      >
-                        {item.type}
-                      </span>
-                      <span className="timeline-period">{item.period}</span>
+              {journey.map((item, i) => {
+                const isLeft = i % 2 === 0;
+                const color = typeColors[item.type] ?? "var(--accent)";
+                return (
+                  <motion.div
+                    key={i}
+                    className={`timeline-alt-row ${isLeft ? "tl-left" : "tl-right"}`}
+                    initial={{ opacity: 0, x: isLeft ? -48 : 48 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: i * 0.08 }}
+                  >
+                    {/* Card */}
+                    <motion.div
+                      className="timeline-alt-card"
+                      style={{ '--card-color': color }}
+                      whileHover={{ y: -6, scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                      {...ho}
+                    >
+                      <div className="timeline-meta">
+                        <span className="timeline-type" style={{ color }}>
+                          {item.type}
+                        </span>
+                        <span className="timeline-period">{item.period}</span>
+                      </div>
+                      <h3 className="timeline-role">{item.role}</h3>
+                      <p className="timeline-org">{item.org}</p>
+                      <p className="timeline-desc">{item.desc}</p>
+                      {/* Accent bar on the edge nearest the spine */}
+                      <div className="timeline-alt-bar" style={{ background: color }} />
+                    </motion.div>
+
+                    {/* Dot on the spine */}
+                    <div className="timeline-alt-dot-wrap">
+                      <motion.div
+                        className="timeline-alt-dot"
+                        style={{ background: color, boxShadow: `0 0 12px ${color}` }}
+                        whileHover={{ scale: 1.5 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 18 }}
+                      />
                     </div>
-                    <h3 className="timeline-role">{item.role}</h3>
-                    <p className="timeline-org">{item.org}</p>
-                    <p className="timeline-desc">{item.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
+
+                    {/* Empty spacer for the opposite side */}
+                    <div className="timeline-alt-spacer" />
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>

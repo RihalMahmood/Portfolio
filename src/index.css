@@ -18,7 +18,7 @@
   --accent2: #6bbaff;
   --font: 'DM Sans', sans-serif;
   --mono: 'DM Mono', monospace;
-  
+
   --accent-glow: rgba(0, 242, 255, 0.5);
   --button-shadow: rgba(0, 242, 255, 0.2);
   --nav-scrolled: rgba(12, 12, 14, 0.85);
@@ -31,7 +31,7 @@
   --muted: #475569;
   --accent: #00868f;
   --border: rgba(0, 0, 0, 0.08);
-  
+
   --accent-glow: rgba(0, 134, 143, 0.1);
   --button-shadow: rgba(0, 134, 143, 0.15);
   --nav-scrolled: rgba(248, 250, 252, 0.9);
@@ -226,9 +226,19 @@ nav.scrolled {
 }
 
 @keyframes wave {
-  0%, 100% { transform: rotate(0) }
-  25%       { transform: rotate(20deg) }
-  75%       { transform: rotate(-10deg) }
+
+  0%,
+  100% {
+    transform: rotate(0)
+  }
+
+  25% {
+    transform: rotate(20deg)
+  }
+
+  75% {
+    transform: rotate(-10deg)
+  }
 }
 
 /* ── MARQUEE NAME BAND ── */
@@ -257,12 +267,18 @@ nav.scrolled {
 }
 
 @keyframes nameMarquee {
-  0%   { transform: translateX(0) }
-  100% { transform: translateX(-50%) }
+  0% {
+    transform: translateX(0)
+  }
+
+  100% {
+    transform: translateX(-50%)
+  }
 }
 
 .hero-name-item {
-  font-size: clamp(100px, 15vw, 220px); /* Smaller name */
+  font-size: clamp(100px, 15vw, 220px);
+  /* Smaller name */
   font-weight: 800;
   letter-spacing: -6px;
   line-height: 1;
@@ -285,6 +301,7 @@ nav.scrolled {
     opacity: 0;
     transform: translate(-50%, calc(-50% + 60px));
   }
+
   to {
     opacity: 1;
     transform: translate(-50%, -50%);
@@ -359,8 +376,13 @@ nav.scrolled {
 }
 
 @keyframes slide {
-  0%   { left: -100% }
-  100% { left: 200% }
+  0% {
+    left: -100%
+  }
+
+  100% {
+    left: 200%
+  }
 }
 
 .hero-right {
@@ -889,7 +911,8 @@ section {
   background: var(--surface);
   padding: 32px;
   border-radius: 16px;
-  border: 1px solid rgba(0, 242, 255, 0.2); /* Thin/faded cyan border */
+  border: 1px solid rgba(0, 242, 255, 0.2);
+  /* Thin/faded cyan border */
   transition: border-color 0.3s;
 }
 
@@ -1299,7 +1322,7 @@ footer a:hover {
 }
 
 /* ══════════════════════════════════════════
-   ── JOURNEY / TIMELINE ──
+   ── JOURNEY / TIMELINE (alternating) ──
 ══════════════════════════════════════════ */
 
 .journey-section {
@@ -1325,53 +1348,153 @@ footer a:hover {
   font-weight: 300;
 }
 
-.timeline {
+/* ── Alternating wrapper ── */
+.timeline-alt {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0;
-  max-width: 760px;
 }
 
-.timeline-item {
+/* The single vertical spine through the centre */
+.timeline-alt-spine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: translateX(-50%);
+  background: var(--border);
+  z-index: 0;
+}
+
+/* Each row: three columns — card | dot | spacer (or spacer | dot | card) */
+.timeline-alt-row {
   display: grid;
-  grid-template-columns: 32px 1fr;
-  gap: 0 28px;
-}
-
-.timeline-connector {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 6px;
-}
-
-.timeline-dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  box-shadow: 0 0 10px currentColor;
+  grid-template-columns: 1fr 40px 1fr;
+  align-items: start;
+  /* Stagger: each row overlaps the previous by pulling up a bit */
+  margin-top: -32px;
   position: relative;
   z-index: 1;
 }
 
-.timeline-line {
-  width: 1px;
-  flex: 1;
-  min-height: 48px;
-  background: var(--border);
-  margin-top: 4px;
+/* Left-side card goes in col 1, dot in col 2, spacer in col 3 */
+.tl-left .timeline-alt-card {
+  grid-column: 1;
+  grid-row: 1;
+  margin-right: 24px;
 }
 
-.timeline-card {
-  padding-bottom: 48px;
+.tl-left .timeline-alt-dot-wrap {
+  grid-column: 2;
+  grid-row: 1;
 }
 
+.tl-left .timeline-alt-spacer {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+/* Right-side card goes in col 3, dot in col 2, spacer in col 1 */
+.tl-right .timeline-alt-spacer {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.tl-right .timeline-alt-dot-wrap {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.tl-right .timeline-alt-card {
+  grid-column: 3;
+  grid-row: 1;
+  margin-left: 24px;
+}
+
+/* Vertical offset: right-side rows drop down so they visually interleave */
+.tl-right {
+  margin-top: 0;
+}
+
+/* ── The card ── */
+.timeline-alt-card {
+  position: relative;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 20px 16px 24px;
+  overflow: hidden;
+  cursor: none;
+  will-change: transform;
+  /* Fix blurry text during scale transforms */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  margin-bottom: 4px;
+}
+
+.timeline-alt-card:hover {
+  border-color: var(--card-color, var(--accent));
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2), 0 0 0 1px var(--card-color, var(--accent));
+}
+
+[data-theme='light'] .timeline-alt-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 0 0 0 1px var(--card-color, var(--accent));
+}
+
+/* Colored accent bar on the spine-facing edge */
+.timeline-alt-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 3px 0 0 3px;
+  opacity: 0.85;
+  transition: opacity 0.25s;
+}
+
+.tl-left .timeline-alt-bar {
+  right: 0;
+  left: auto;
+  border-radius: 0 3px 3px 0;
+}
+
+.tl-right .timeline-alt-bar {
+  left: 0;
+  right: auto;
+  border-radius: 3px 0 0 3px;
+}
+
+.timeline-alt-card:hover .timeline-alt-bar {
+  opacity: 1;
+}
+
+/* ── Dot on the spine ── */
+.timeline-alt-dot-wrap {
+  display: flex;
+  justify-content: center;
+  padding-top: 18px;
+}
+
+.timeline-alt-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  cursor: none;
+}
+
+/* ── Shared text styles (reuse old names) ── */
 .timeline-meta {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 8px;
+  flex-wrap: wrap;
 }
 
 .timeline-type {
@@ -1390,7 +1513,7 @@ footer a:hover {
 }
 
 .timeline-role {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   letter-spacing: -.3px;
   margin-bottom: 4px;
@@ -1406,14 +1529,13 @@ footer a:hover {
 }
 
 .timeline-desc {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.75;
   color: var(--muted);
   font-weight: 300;
-  max-width: 600px;
 }
 
-/* ── Responsive ── */
+/* ── Responsive: collapse to single column on small screens ── */
 @media (max-width: 900px) {
   .about-intro-grid {
     grid-template-columns: 1fr;
@@ -1436,5 +1558,46 @@ footer a:hover {
 
   .about-stat-cards {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Stack everything left-aligned on mobile */
+  .timeline-alt-spine {
+    left: 16px;
+    transform: none;
+  }
+
+  .timeline-alt-row,
+  .tl-left,
+  .tl-right {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .tl-right {
+    margin-top: 0;
+  }
+
+  .tl-left .timeline-alt-card,
+  .tl-right .timeline-alt-card {
+    margin: 0;
+    flex: 1;
+  }
+
+  .tl-left .timeline-alt-bar {
+    right: auto;
+    left: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .timeline-alt-dot-wrap {
+    padding-top: 24px;
+    flex-shrink: 0;
+  }
+
+  .timeline-alt-spacer {
+    display: none;
   }
 }
