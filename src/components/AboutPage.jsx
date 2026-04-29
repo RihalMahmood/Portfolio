@@ -166,7 +166,7 @@ export default function AboutPage() {
               >
                 I specialize in full-stack web development with the MERN stack,
                 and I'm increasingly drawn to AI-augmented applications. When
-                I'm not shipping code, I'm mentoring students, playing chess, or
+                I'm not shipping code, I'm mentoring students, playing games, or
                 overthinking UI details.
               </motion.p>
 
@@ -178,7 +178,7 @@ export default function AboutPage() {
                 custom={4}
               >
                 <a
-                  href="/resume.pdf"
+                  href="/files/CV.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="about-resume-btn"

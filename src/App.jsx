@@ -15,7 +15,11 @@ import AboutPage from "./components/AboutPage";
 import './index.css';
 
 function HomePage({ theme, toggleTheme }) {
-  const [isLoading, setIsLoading] = useState(true);
+  // Only show the loader on the very first visit in this browser session.
+  // Navigating away and back (e.g. About → Home) will NOT retrigger it.
+  const [isLoading, setIsLoading] = useState(() => {
+    return !sessionStorage.getItem("portfolio_loaded");
+  });
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("top");
   const [hovering, setHovering] = useState(false);
@@ -60,7 +64,10 @@ function HomePage({ theme, toggleTheme }) {
   return (
     <>
       <AnimatePresence>
-        {isLoading && <Loader setLoadingComplete={() => setIsLoading(false)} />}
+        {isLoading && <Loader setLoadingComplete={() => {
+          sessionStorage.setItem("portfolio_loaded", "true");
+          setIsLoading(false);
+        }} />}
       </AnimatePresence>
 
       <div
@@ -83,13 +90,22 @@ function HomePage({ theme, toggleTheme }) {
 }
 
 export default function App() {
-  const [theme, setTheme] = useState("dark");
+  // Persist theme within the browser session.
+  // Defaults to "dark" on first load; remembers the last choice on refresh.
+  // Resets to "dark" when the browser/tab is closed.
+  const [theme, setTheme] = useState(() => {
+    return sessionStorage.getItem("portfolio_theme") || "dark";
+  });
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
-  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    sessionStorage.setItem("portfolio_theme", next);
+    setTheme(next);
+  };
 
   return (
     <BrowserRouter>
