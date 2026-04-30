@@ -1,7 +1,29 @@
+import { useState } from "react";
 import { contacts } from "../data";
 
 export default function Contact({ setHovering }) {
   const ho = { onMouseEnter: () => setHovering(true), onMouseLeave: () => setHovering(false) };
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sent, setSent] = useState(false);
+
+  const handleChange = (e) => {
+    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`
+    );
+    window.open(
+      `https://mail.google.com/mail/?view=cm&fs=1&to=rihalmahmood@gmail.com&su=${subject}&body=${body}`,
+      "_blank"
+    );
+    setSent(true);
+    setForm({ name: "", email: "", message: "" });
+    setTimeout(() => setSent(false), 4000);
+  };
   return (
     <>
       {/*CONTACT*/}
@@ -15,12 +37,36 @@ export default function Contact({ setHovering }) {
             </p>
           </div>
           <div className="contact-right reveal d2">
-            <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-              <input type="text" placeholder="Name" className="form-input" />
-              <input type="email" placeholder="Email" className="form-input" />
-              <textarea placeholder="Tell me about the problem or opportunity." className="form-input form-textarea" rows="5"></textarea>
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                className="form-input"
+                value={form.name}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                className="form-input"
+                value={form.email}
+                onChange={handleChange}
+                required
+              />
+              <textarea
+                name="message"
+                placeholder="Tell me about the problem or opportunity."
+                className="form-input form-textarea"
+                rows="5"
+                value={form.message}
+                onChange={handleChange}
+                required
+              ></textarea>
               <button type="submit" className="form-submit" {...ho}>
-                Send message ↗
+                {sent ? "Opening Gmail… ✓" : "Send message ↗"}
               </button>
             </form>
           </div>

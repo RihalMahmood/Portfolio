@@ -219,7 +219,7 @@ export default function AboutPage() {
                   <span className="about-resume-icon">↓</span>
                   View Resume
                 </a>
-                <a href="mailto:rihalmahmood@gmail.com" className="about-contact-link" {...ho}>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rihalmahmood@gmail.com" target="_blank" rel="noopener noreferrer" className="about-contact-link" {...ho}>
                   Get in touch →
                 </a>
               </motion.div>

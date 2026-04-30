@@ -105,7 +105,7 @@ export const projects = [
 ];
 
 export const contacts = [
-    { icon: "E", label: "Email", val: "rihalmahmood@gmail.com", href: "mailto:rihalmahmood@gmail.com" },
+    { icon: "E", label: "Email", val: "rihalmahmood@gmail.com", href: "https://mail.google.com/mail/?view=cm&fs=1&to=rihalmahmood@gmail.com" },
     { icon: "GH", label: "GitHub", val: "github.com/RihalMahmood", href: "https://github.com/RihalMahmood" },
     { icon: "LI", label: "LinkedIn", val: "linkedin.com/in/rihalmahmood", href: "https://www.linkedin.com/in/quazi-rihal-mahmood-05a59b362/" },
 ];

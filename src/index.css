@@ -1646,22 +1646,18 @@ footer a:hover {
 .pp-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    var(--bg) 0%,
-    rgba(0, 0, 0, 0.4) 60%,
-    transparent 100%
-  );
+  background: linear-gradient(to top,
+      var(--bg) 0%,
+      rgba(0, 0, 0, 0.4) 60%,
+      transparent 100%);
   pointer-events: none;
 }
 
 [data-theme='light'] .pp-hero-overlay {
-  background: linear-gradient(
-    to top,
-    var(--bg) 0%,
-    rgba(255, 255, 255, 0.4) 60%,
-    transparent 100%
-  );
+  background: linear-gradient(to top,
+      var(--bg) 0%,
+      rgba(255, 255, 255, 0.4) 60%,
+      transparent 100%);
 }
 
 .pp-hero-content {
@@ -1683,7 +1679,7 @@ footer a:hover {
   font-family: var(--mono);
   font-size: 12px;
   letter-spacing: .5px;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   cursor: none;
   transition: color .2s;
@@ -1714,11 +1710,13 @@ footer a:hover {
 }
 
 /* On hero image we want the text to be readable regardless of bg */
-.pp-hero-title, .pp-hero-subtitle, .pp-back-link {
+.pp-hero-title,
+.pp-hero-subtitle,
+.pp-back-link {
   color: #fff;
 }
 
-[data-theme='light'] .pp-hero-title, 
+[data-theme='light'] .pp-hero-title,
 [data-theme='light'] .pp-hero-subtitle,
 [data-theme='light'] .pp-back-link {
   color: #111;
@@ -1911,6 +1909,15 @@ footer a:hover {
   pointer-events: none;
 }
 
+[data-theme='light'] .pp-cta-glow {
+  background: radial-gradient(ellipse at 50% 110%, rgba(0, 134, 143, 0.35) 0%, rgba(0, 134, 143, 0.12) 45%, transparent 72%);
+}
+
+[data-theme='light'] .pp-cta-banner {
+  box-shadow: 0 8px 40px rgba(0, 134, 143, 0.18), 0 2px 12px rgba(0, 134, 143, 0.1);
+  border-color: rgba(0, 134, 143, 0.25);
+}
+
 .pp-cta-heading {
   font-size: clamp(24px, 4vw, 40px);
   font-weight: 700;
@@ -1953,7 +1960,9 @@ footer a:hover {
   max-width: 45%;
 }
 
-.pp-sibling-link:hover { opacity: .8; }
+.pp-sibling-link:hover {
+  opacity: .8;
+}
 
 .pp-sibling-next {
   align-items: flex-end;

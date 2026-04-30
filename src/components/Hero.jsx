@@ -70,7 +70,7 @@ export default function Hero({ setHovering, isLoading }) {
 
         <div className="hero-right">
           <div className="hero-contact">
-            <a href="mailto:rihalmahmood@gmail.com" className="contact-row" {...ho}>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rihalmahmood@gmail.com" target="_blank" rel="noopener noreferrer" className="contact-row" {...ho}>
               <span className="label">E</span> rihalmahmood@gmail.com
             </a>
             <a href="tel:+8801740350047" className="contact-row" {...ho}>
