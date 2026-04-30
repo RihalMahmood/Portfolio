@@ -247,8 +247,8 @@ export default function AboutPage() {
 
               <div className="about-stat-cards">
                 {[
-                  { num: "4+", lbl: "Projects Shipped" },
-                  { num: "3+", lbl: "Years Coding" },
+                  { num: "4+", lbl: "Years Coding" },
+                  { num: "3.75", lbl: "CGPA" },
                   { num: "∞", lbl: "Cups of Coffee" },
                 ].map((s, i) => (
                   <motion.div
