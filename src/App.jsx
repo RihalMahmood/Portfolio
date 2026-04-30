@@ -24,8 +24,6 @@ function ScrollToTop() {
 }
 
 function HomePage({ theme, toggleTheme }) {
-  //Only show the loader on the very first visit in this browser session.
-  //Navigating away and back (e.g. About → Home) will NOT retrigger it.
   const [isLoading, setIsLoading] = useState(() => {
     return !sessionStorage.getItem("portfolio_loaded");
   });
@@ -54,12 +52,10 @@ function HomePage({ theme, toggleTheme }) {
     const obs = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
     sections.forEach(id => {
@@ -72,13 +68,10 @@ function HomePage({ theme, toggleTheme }) {
 
   const location = useLocation();
 
-  //After navigating from About page, auto-scroll to the requested section
   useEffect(() => {
     if (!isLoading && location.state?.scrollTo) {
       const el = document.getElementById(location.state.scrollTo);
-      if (el) {
-        setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 100);
-      }
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 100);
       window.history.replaceState({}, "");
     }
   }, [isLoading, location.state]);
@@ -100,10 +93,28 @@ function HomePage({ theme, toggleTheme }) {
         }}
       >
         <CustomCursor hovering={hovering} />
-        <Navbar scrolled={scrolled} hovering={hovering} setHovering={setHovering} activeSection={activeSection} theme={theme} toggleTheme={toggleTheme} isLoading={isLoading} />
+        <Navbar
+          scrolled={scrolled}
+          hovering={hovering}
+          setHovering={setHovering}
+          activeSection={activeSection}
+          theme={theme}
+          toggleTheme={toggleTheme}
+          isLoading={isLoading}
+        />
         <Hero hovering={hovering} setHovering={setHovering} isLoading={isLoading} />
-        <Marquee />
-        <Skills hovering={hovering} setHovering={setHovering} />
+
+        {/*
+          Marquee + Skills share one scroll anchor.
+          The navbar "#skills" link and the IntersectionObserver both
+          target this wrapper, so clicking "Skills" always brings
+          Marquee into view at the very top of the frame.
+        */}
+        <div id="skills">
+          <Marquee />
+          <Skills hovering={hovering} setHovering={setHovering} />
+        </div>
+
         <Projects hovering={hovering} setHovering={setHovering} />
         <Contact hovering={hovering} setHovering={setHovering} />
         <SpotifyPlaylist hovering={hovering} setHovering={setHovering} />
@@ -113,9 +124,6 @@ function HomePage({ theme, toggleTheme }) {
 }
 
 export default function App() {
-  //Persist theme within the browser session.
-  //Defaults to "dark" on first load; remembers the last choice on refresh.
-  //Resets to "dark" when the browser/tab is closed.
   const [theme, setTheme] = useState(() => {
     return sessionStorage.getItem("portfolio_theme") || "dark";
   });
