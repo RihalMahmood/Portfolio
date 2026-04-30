@@ -64,7 +64,7 @@ export const projects = [
         tag: "E-Commerce · MERN",
         desc: "A commercial-grade MERN stack e-commerce platform for Gazi Fan, featuring product filtering, session-based shopping carts, and secure JWT authentication.",
         longDesc: "A full production e-commerce platform built for Gazi Fan, a Bangladeshi consumer electronics brand. The site supports the complete shopping lifecycle — product browsing, category filtering, cart management, and user authentication. Designed to be maintainable and scalable by a non-technical business owner, with a clean admin interface for product management.",
-        github: "https://github.com/RihalMahmood/Gazi-Fan",
+        github: "https://github.com/RihalMahmood/Gazi-Fan-Website",
         features: [
             "Product catalogue with category filtering and search",
             "Session-based shopping cart that persists across page refreshes",
@@ -88,7 +88,7 @@ export const projects = [
         tag: "Desktop · Java",
         desc: "A complete two-player chess game with a JavaFX GUI, full rule enforcement, and game management features.",
         longDesc: "A fully featured desktop chess application built in Java with a JavaFX graphical interface. The game implements the complete FIDE chess ruleset including special moves, check/checkmate/stalemate detection, and move validation. Originally built as a university course project for Programming Language-II, it grew into a polished desktop app with multiple game management features.",
-        github: "https://github.com/RihalMahmood/Chess-Game",
+        github: "https://github.com/RihalMahmood/Chess-game-using-Java",
         features: [
             "Full FIDE rule enforcement: castling, en passant, pawn promotion",
             "Real-time check, checkmate, and stalemate detection",
