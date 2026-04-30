@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 
-const text = "Welcome to Rihal's Portfolio".split(" ");
+const text = "Hello, I'm Rihal".split(" ");
 
 export default function Loader({ setLoadingComplete }) {
   useEffect(() => {
-    // Wait for words to appear, then pause, then trigger completion
+    //Wait for words to appear, then pause, then trigger completion
     const timer = setTimeout(() => {
       setLoadingComplete(true);
     }, text.length * 150 + 800);

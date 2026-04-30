@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import CustomCursor from "./CustomCursor";
 
-/* ── Journey timeline data ── */
+/*Journey timeline data*/
 const journey = [
   {
     period: "Jan 2022 – Present",
@@ -90,7 +90,7 @@ export default function AboutPage() {
   );
   const [hovering, setHovering] = useState(false);
 
-  /* Keep theme in sync with the html attribute set by App */
+  /*Keep theme in sync with the html attribute set by App*/
   useEffect(() => {
     const observer = new MutationObserver(() => {
       setTheme(
@@ -113,7 +113,7 @@ export default function AboutPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* Reveal animation observer */
+  /*Reveal animation observer*/
   useEffect(() => {
     const els = document.querySelectorAll(".reveal");
     const obs = new IntersectionObserver(
@@ -152,10 +152,10 @@ export default function AboutPage() {
       />
 
       <main className="about-page">
-        {/* ── Hero / Intro ── */}
+        {/*Hero / Intro*/}
         <section className="about-intro-section">
           <div className="container about-intro-grid">
-            {/* Left – text block */}
+            {/*Left - text block*/}
             <div className="about-intro-text">
               <motion.p
                 className="section-label"
@@ -225,7 +225,7 @@ export default function AboutPage() {
               </motion.div>
             </div>
 
-            {/* Right – photo + stat cards */}
+            {/*Right – photo + stat cards*/}
             <motion.div
               className="about-intro-visual"
               variants={fadeUp}
@@ -265,7 +265,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── Journey / Timeline ── */}
+        {/*Journey / Timeline*/}
         <section className="journey-section">
           <div className="container">
             <div className="reveal">
@@ -279,7 +279,7 @@ export default function AboutPage() {
             </div>
 
             <div className="timeline-alt">
-              {/* Central vertical line */}
+              {/*Central vertical line*/}
               <div className="timeline-alt-spine" />
 
               {journey.map((item, i) => {
@@ -294,7 +294,7 @@ export default function AboutPage() {
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: i * 0.08 }}
                   >
-                    {/* Card */}
+                    {/*Card*/}
                     <motion.div
                       className="timeline-alt-card"
                       style={{ '--card-color': color }}
@@ -311,11 +311,11 @@ export default function AboutPage() {
                       <h3 className="timeline-role">{item.role}</h3>
                       <p className="timeline-org">{item.org}</p>
                       <p className="timeline-desc">{item.desc}</p>
-                      {/* Accent bar on the edge nearest the spine */}
+                      {/*Accent bar on the edge nearest the spine*/}
                       <div className="timeline-alt-bar" style={{ background: color }} />
                     </motion.div>
 
-                    {/* Dot on the spine */}
+                    {/*Dot on the spine*/}
                     <div className="timeline-alt-dot-wrap">
                       <motion.div
                         className="timeline-alt-dot"
@@ -325,7 +325,7 @@ export default function AboutPage() {
                       />
                     </div>
 
-                    {/* Empty spacer for the opposite side */}
+                    {/*Empty spacer for the opposite side*/}
                     <div className="timeline-alt-spacer" />
                   </motion.div>
                 );
@@ -334,7 +334,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── Footer ── */}
+        {/*Footer*/}
         <footer>
           <div className="container" style={{ display: "flex", justifyContent: "space-between", padding: "0 40px" }}>
             <span>© 2026 Quazi Rihal Mahmood</span>

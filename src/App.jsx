@@ -9,13 +9,14 @@ import Marquee from "./components/Marquee";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import SpotifyPlaylist from "./components/SpotifyPlaylist";
 import CustomCursor from "./components/CustomCursor";
 import AboutPage from "./components/AboutPage";
 import ProjectPage from "./components/ProjectPage";
 
 import './index.css';
 
-// Resets scroll to top on every route change
+//Resets scroll to top on every route change
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
@@ -23,8 +24,8 @@ function ScrollToTop() {
 }
 
 function HomePage({ theme, toggleTheme }) {
-  // Only show the loader on the very first visit in this browser session.
-  // Navigating away and back (e.g. About → Home) will NOT retrigger it.
+  //Only show the loader on the very first visit in this browser session.
+  //Navigating away and back (e.g. About → Home) will NOT retrigger it.
   const [isLoading, setIsLoading] = useState(() => {
     return !sessionStorage.getItem("portfolio_loaded");
   });
@@ -71,7 +72,7 @@ function HomePage({ theme, toggleTheme }) {
 
   const location = useLocation();
 
-  // After navigating from About page, auto-scroll to the requested section
+  //After navigating from About page, auto-scroll to the requested section
   useEffect(() => {
     if (!isLoading && location.state?.scrollTo) {
       const el = document.getElementById(location.state.scrollTo);
@@ -105,15 +106,16 @@ function HomePage({ theme, toggleTheme }) {
         <Skills hovering={hovering} setHovering={setHovering} />
         <Projects hovering={hovering} setHovering={setHovering} />
         <Contact hovering={hovering} setHovering={setHovering} />
+        <SpotifyPlaylist hovering={hovering} setHovering={setHovering} />
       </div>
     </>
   );
 }
 
 export default function App() {
-  // Persist theme within the browser session.
-  // Defaults to "dark" on first load; remembers the last choice on refresh.
-  // Resets to "dark" when the browser/tab is closed.
+  //Persist theme within the browser session.
+  //Defaults to "dark" on first load; remembers the last choice on refresh.
+  //Resets to "dark" when the browser/tab is closed.
   const [theme, setTheme] = useState(() => {
     return sessionStorage.getItem("portfolio_theme") || "dark";
   });

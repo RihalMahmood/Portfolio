@@ -7,8 +7,8 @@ export default function Navbar({ scrolled, setHovering, activeSection, theme, to
   const navigate = useNavigate();
   const isInternalPage = location.pathname === "/about" || location.pathname.startsWith("/projects/");
 
-  // When on an internal page, navigate to home and carry the target section
-  // as router state so HomePage can scroll to it after mounting.
+  /*When on an internal page, navigate to home and carry the target section
+  as router state so HomePage can scroll to it after mounting.*/
   const goToSection = (sectionId) => (e) => {
     e.preventDefault();
     navigate("/", { state: { scrollTo: sectionId } });
@@ -25,7 +25,7 @@ export default function Navbar({ scrolled, setHovering, activeSection, theme, to
         <span />
         <div className="nav-links">
           {isInternalPage ? (
-            /* On an internal page — programmatically navigate to home + scroll target */
+            /*On an internal page - programmatically navigate to home + scroll target*/
             <>
               <a href="/" onClick={goToSection("top")} className="" {...ho}>Home</a>
               <a href="/" onClick={goToSection("skills")} className="" {...ho}>Skills</a>
@@ -34,7 +34,7 @@ export default function Navbar({ scrolled, setHovering, activeSection, theme, to
               <Link to="/about" className={location.pathname === "/about" ? "active" : ""} {...ho}>About</Link>
             </>
           ) : (
-            /* On the Home page, normal hash links + About goes to /about */
+            /*On the Home page, normal hash links + About goes to /about*/
             <>
               <a href="#top" className={activeSection === "top" ? "active" : ""} {...ho}>Home</a>
               <a href="#skills" className={activeSection === "skills" ? "active" : ""} {...ho}>Skills</a>

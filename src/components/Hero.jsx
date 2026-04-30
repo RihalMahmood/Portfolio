@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 export default function Hero({ setHovering, isLoading }) {
   const ho = { onMouseEnter: () => setHovering(true), onMouseLeave: () => setHovering(false) };
 
-  /* Repeat the name enough times so the track is always wider than the viewport */
+  /*Repeat the name enough times so the track is always wider than the viewport*/
   const nameRepeat = Array(8).fill("Quazi Rihal Mahmood");
 
   return (
     <section className="hero" id="top">
-      {/* Decorative SVG path */}
+      {/*Decorative SVG path*/}
       <svg style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, pointerEvents: "none" }}>
         <path d="M -100 200 Q 300 500 500 -100" stroke="var(--border)" strokeWidth="1" fill="transparent" />
         <circle r="3" fill="none" stroke="var(--accent)" strokeWidth="1.5">
@@ -18,7 +18,7 @@ export default function Hero({ setHovering, isLoading }) {
       </svg>
 
       <div className="hero-top-content">
-        {/* ── Greeting line ── */}
+        {/*Greeting line*/}
         <motion.div
           className="hero-greeting"
           initial={{ y: -30, opacity: 0 }}
@@ -28,9 +28,9 @@ export default function Hero({ setHovering, isLoading }) {
           Hey, <span className="wave">👋</span> I'm a Passionate Coder
         </motion.div>
 
-        {/* ── Marquee band with photo in the middle ── */}
+        {/*Marquee band with photo in the middle*/}
         <div className="hero-marquee-band">
-          {/* The scrolling name track */}
+          {/*The scrolling name track*/}
           <div className="hero-name-track">
             {nameRepeat.map((name, i) => (
               <span key={i} className="hero-name-item">
@@ -40,7 +40,7 @@ export default function Hero({ setHovering, isLoading }) {
             ))}
           </div>
 
-          {/* Profile picture pinned to the centre of the band */}
+          {/*Profile picture pinned to the centre of the band*/}
           <motion.img
             className="hero-band-img"
             src="/images/Riju.png"
@@ -56,7 +56,7 @@ export default function Hero({ setHovering, isLoading }) {
         </div>
       </div>
 
-      {/* ── Bottom two-column info row ── */}
+      {/*Bottom two-column info row*/}
       <div className="container hero-bottom-row">
         <div className="hero-left">
           <p className="hero-role">BSc in Computer Science &amp; Engineering</p>

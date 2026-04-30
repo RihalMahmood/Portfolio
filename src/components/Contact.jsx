@@ -85,12 +85,6 @@ export default function Contact({ setHovering }) {
           </div>
         </div>
       </section>
-
-      {/*FOOTER*/}
-      <footer><div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 40px" }}>
-        <span>© 2026 Quazi Rihal Mahmood. All rights reserved.</span>
-        <span>Built with ❤️ and inspired by many great developers</span>
-      </div></footer>
     </>
   );
 }
