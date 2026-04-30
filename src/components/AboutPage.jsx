@@ -174,8 +174,8 @@ export default function AboutPage() {
                 animate="show"
                 custom={1}
               >
-                I build things for the&nbsp;
-                <em className="about-headline-accent">web.</em>
+                I architect systems and engineer digital&nbsp;
+                <em className="about-headline-accent">solutions.</em>
               </motion.h1>
 
               <motion.p
@@ -199,10 +199,7 @@ export default function AboutPage() {
                 animate="show"
                 custom={3}
               >
-                I specialize in full-stack web development with the MERN stack,
-                and I'm increasingly drawn to AI-augmented applications. When
-                I'm not shipping code, I'm mentoring students, playing games, or
-                overthinking UI details.
+                I specialize in architecting scalable systems and full-stack applications, with a deep interest in distributed computing and AI-augmented software. When I'm not engineering solutions, I'm mentoring students, exploring new tech stacks, playing games, or overthinking UI details.
               </motion.p>
 
               <motion.div

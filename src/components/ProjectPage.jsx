@@ -5,7 +5,7 @@ import { projects } from "../data";
 import Navbar from "./Navbar";
 import CustomCursor from "./CustomCursor";
 
-/* ── Animation variants ── */
+/*Animation variants*/
 const fadeUp = {
   hidden: { opacity: 0, y: 36 },
   show: (i = 0) => ({
@@ -35,7 +35,7 @@ export default function ProjectPage() {
     document.documentElement.getAttribute("data-theme") || "dark"
   );
 
-  /* Keep theme in sync */
+  /*Keep theme in sync*/
   useEffect(() => {
     const observer = new MutationObserver(() => {
       setTheme(document.documentElement.getAttribute("data-theme") || "dark");
@@ -57,7 +57,7 @@ export default function ProjectPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* Parallax on the hero image */
+  /*Parallax on the hero image*/
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
@@ -67,7 +67,7 @@ export default function ProjectPage() {
     onMouseLeave: () => setHovering(false),
   };
 
-  /* 404 guard */
+  /*404 guard*/
   if (!project) {
     return (
       <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 24 }}>
@@ -78,11 +78,6 @@ export default function ProjectPage() {
   }
 
   const accent = "var(--accent)";
-
-  /* Sibling projects for prev/next nav */
-  const currentIndex = projects.findIndex((p) => p.slug === slug);
-  const prevProject = projects[currentIndex - 1] ?? null;
-  const nextProject = projects[currentIndex + 1] ?? null;
 
   return (
     <>
@@ -97,9 +92,9 @@ export default function ProjectPage() {
       />
 
       <main className="pp-page">
-        {/* ══════════ HERO ══════════ */}
+        {/*Hero*/}
         <section className="pp-hero" ref={heroRef} style={{ "--pp-accent": accent }}>
-          {/* Parallax image */}
+          {/*Parallax image*/}
           <motion.div className="pp-hero-img-wrap" style={{ y: imgY }}>
             {project.image ? (
               <img src={project.image} alt={project.title} className="pp-hero-img" />
@@ -110,10 +105,10 @@ export default function ProjectPage() {
             )}
           </motion.div>
 
-          {/* Gradient overlay */}
-          <div className="pp-hero-overlay" />
+          {/*Gradient overlay — must not intercept pointer events so the navbar stays clickable*/}
+          <div className="pp-hero-overlay" style={{ pointerEvents: "none" }} />
 
-          {/* Hero text */}
+          {/*Hero text*/}
           <div className="pp-hero-content container">
             <motion.div
               variants={fadeUp} initial="hidden" animate="show" custom={0}
@@ -168,10 +163,10 @@ export default function ProjectPage() {
           </div>
         </section>
 
-        {/* ══════════ BODY ══════════ */}
+        {/*BODY*/}
         <div className="pp-body container">
 
-          {/* Overview */}
+          {/*Overview*/}
           <motion.section
             className="pp-section"
             variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} custom={0}
@@ -180,9 +175,9 @@ export default function ProjectPage() {
             <p className="pp-overview-text">{project.longDesc}</p>
           </motion.section>
 
-          {/* Features + Tech Stack (two-col) */}
+          {/*Features + Tech Stack (two-col)*/}
           <div className="pp-two-col">
-            {/* Features */}
+            {/*Features*/}
             <motion.section
               className="pp-section"
               variants={fadeLeft} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }} custom={0}
@@ -203,7 +198,7 @@ export default function ProjectPage() {
               </ul>
             </motion.section>
 
-            {/* Tech stack */}
+            {/*Tech stack*/}
             <motion.section
               className="pp-section"
               variants={fadeLeft} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }} custom={1}
@@ -226,7 +221,7 @@ export default function ProjectPage() {
             </motion.section>
           </div>
 
-          {/* Challenges */}
+          {/*Challenges*/}
           <motion.section
             className="pp-section pp-challenges"
             variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} custom={0}
@@ -237,14 +232,14 @@ export default function ProjectPage() {
             </blockquote>
           </motion.section>
 
-          {/* GitHub CTA banner */}
+          {/*GitHub CTA banner*/}
           <motion.section
             className="pp-cta-banner"
             variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} custom={0}
           >
             <div className="pp-cta-glow" />
             <p className="pp-cta-heading">Curious about the code?</p>
-            <p className="pp-cta-sub">The full source is on GitHub — browse the implementation, issues, and commit history.</p>
+            <p className="pp-cta-sub">The full source is on GitHub - browse the implementation, issues, and commit history.</p>
             <a
               href={project.github}
               target="_blank"
@@ -259,33 +254,9 @@ export default function ProjectPage() {
             </a>
           </motion.section>
 
-          {/* Prev / Next project nav */}
-          <nav className="pp-sibling-nav">
-            {prevProject ? (
-              <Link
-                to={`/projects/${prevProject.slug}`}
-                className="pp-sibling-link pp-sibling-prev"
-                {...ho}
-              >
-                <span className="pp-sibling-dir">← Previous</span>
-                <span className="pp-sibling-title">{prevProject.title}</span>
-              </Link>
-            ) : <span />}
-
-            {nextProject ? (
-              <Link
-                to={`/projects/${nextProject.slug}`}
-                className="pp-sibling-link pp-sibling-next"
-                {...ho}
-              >
-                <span className="pp-sibling-dir">Next →</span>
-                <span className="pp-sibling-title">{nextProject.title}</span>
-              </Link>
-            ) : <span />}
-          </nav>
         </div>
 
-        {/* Footer */}
+        {/*Footer*/}
         <footer>
           <div className="container" style={{ display: "flex", justifyContent: "space-between", padding: "0 40px" }}>
             <span>© 2026 Quazi Rihal Mahmood</span>
