@@ -235,7 +235,7 @@ export default function AboutPage() {
             >
               <div className="about-photo-wrap">
                 <img
-                  src="/images/Riju.png"
+                  src="/images/Rih.jpeg"
                   alt="Quazi Rihal Mahmood"
                   className="about-photo"
                 />
