@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 
-const text = "Hello, I'm Rihal".split(" ");
+const text = "Hala Madrid y nada más".split(" ");
 
 export default function Loader({ setLoadingComplete }) {
   useEffect(() => {

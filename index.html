@@ -6,6 +6,19 @@
   <link rel="icon" type="image/svg+xml" href="./public/images/RM.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quazi Rihal Mahmood</title>
+
+  <!--
+    Runs synchronously before any CSS or React renders.
+    Reads the theme stored by the last visit in this tab (sessionStorage)
+    and applies it to <html> immediately — no flash, no delay.
+    Falls back to "dark" for brand-new tabs / first visits.
+  -->
+  <script>
+    (function () {
+      var theme = sessionStorage.getItem('portfolio_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 </head>
 
 <body>
