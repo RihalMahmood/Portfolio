@@ -5,9 +5,9 @@ export default function Navbar({ scrolled, setHovering, activeSection, theme, to
   const ho = { onMouseEnter: () => setHovering(true), onMouseLeave: () => setHovering(false) };
   const location = useLocation();
   const navigate = useNavigate();
-  const isAbout = location.pathname === "/about";
+  const isInternalPage = location.pathname === "/about" || location.pathname.startsWith("/projects/");
 
-  // When on the About page, navigate to home and carry the target section
+  // When on an internal page, navigate to home and carry the target section
   // as router state so HomePage can scroll to it after mounting.
   const goToSection = (sectionId) => (e) => {
     e.preventDefault();
@@ -24,14 +24,14 @@ export default function Navbar({ scrolled, setHovering, activeSection, theme, to
       <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 40px" }}>
         <span />
         <div className="nav-links">
-          {isAbout ? (
-            /* On the About page — programmatically navigate to home + scroll target */
+          {isInternalPage ? (
+            /* On an internal page — programmatically navigate to home + scroll target */
             <>
               <a href="/" onClick={goToSection("top")} className="" {...ho}>Home</a>
               <a href="/" onClick={goToSection("skills")} className="" {...ho}>Skills</a>
-              <a href="/" onClick={goToSection("work")} className="" {...ho}>Projects</a>
+              <a href="/" onClick={goToSection("work")} className={location.pathname.startsWith("/projects/") ? "active" : ""} {...ho}>Projects</a>
               <a href="/" onClick={goToSection("contact")} className="" {...ho}>Contact</a>
-              <Link to="/about" className="active" {...ho}>About</Link>
+              <Link to="/about" className={location.pathname === "/about" ? "active" : ""} {...ho}>About</Link>
             </>
           ) : (
             /* On the Home page, normal hash links + About goes to /about */

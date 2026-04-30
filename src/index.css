@@ -1601,3 +1601,427 @@ footer a:hover {
     display: none;
   }
 }
+
+/* ══════════════════════════════════════════
+   ── PROJECT DETAIL PAGE ──
+══════════════════════════════════════════ */
+
+.pp-page {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* ── Hero ── */
+.pp-hero {
+  position: relative;
+  height: 70vh;
+  min-height: 480px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.pp-hero-img-wrap {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.pp-hero-img {
+  width: 100%;
+  height: 115%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: brightness(0.45) saturate(0.8);
+}
+
+.pp-hero-emoji-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 120px;
+}
+
+.pp-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    var(--bg) 0%,
+    rgba(0, 0, 0, 0.4) 60%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+[data-theme='light'] .pp-hero-overlay {
+  background: linear-gradient(
+    to top,
+    var(--bg) 0%,
+    rgba(255, 255, 255, 0.4) 60%,
+    transparent 100%
+  );
+}
+
+.pp-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 40px 52px;
+  width: 100%;
+}
+
+.pp-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.pp-back-link {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .5px;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  cursor: none;
+  transition: color .2s;
+}
+
+.pp-back-link:hover {
+  color: #fff;
+}
+
+.pp-hero-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 3px 12px;
+  border-radius: 20px;
+}
+
+.pp-hero-title {
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1.05;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+/* On hero image we want the text to be readable regardless of bg */
+.pp-hero-title, .pp-hero-subtitle, .pp-back-link {
+  color: #fff;
+}
+
+[data-theme='light'] .pp-hero-title, 
+[data-theme='light'] .pp-hero-subtitle,
+[data-theme='light'] .pp-back-link {
+  color: #111;
+}
+
+.pp-hero-subtitle {
+  font-size: 16px;
+  opacity: 0.8;
+  font-weight: 300;
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.pp-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ── GitHub button ── */
+.pp-github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  text-decoration: none;
+  cursor: none;
+  background: var(--accent);
+  color: #000;
+  transition: opacity .25s, transform .25s, box-shadow .25s;
+}
+
+.pp-github-btn:hover {
+  opacity: .88;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+.pp-info-chip {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.pp-hero-info {
+  display: flex;
+  gap: 8px;
+}
+
+/* ── Body ── */
+.pp-body {
+  padding: 72px 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.pp-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pp-section-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.pp-overview-text {
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 800px;
+}
+
+/* ── Two-column layout ── */
+.pp-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px 64px;
+}
+
+/* ── Features ── */
+.pp-features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pp-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+  cursor: none;
+  transition: color .2s;
+}
+
+.pp-feature-item:hover {
+  color: var(--text);
+}
+
+.pp-feature-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* ── Tech badges ── */
+.pp-tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pp-tech-badge {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .3px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  cursor: none;
+  transition: border-color .2s, color .2s;
+}
+
+.pp-tech-badge:hover {
+  color: var(--text);
+}
+
+/* ── Challenges ── */
+.pp-challenges {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  padding: 28px 32px;
+}
+
+.pp-challenge-text {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--muted);
+  font-weight: 300;
+  font-style: normal;
+  margin: 0;
+  quotes: none;
+}
+
+/* ── GitHub CTA Banner ── */
+.pp-cta-banner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 60px 40px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.pp-cta-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 100%, var(--accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.pp-cta-heading {
+  font-size: clamp(24px, 4vw, 40px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  position: relative;
+}
+
+.pp-cta-sub {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 420px;
+  line-height: 1.7;
+  font-weight: 300;
+  position: relative;
+}
+
+.pp-cta-btn {
+  margin-top: 8px;
+  position: relative;
+  padding: 14px 32px;
+  font-size: 15px;
+}
+
+/* ── Sibling nav ── */
+.pp-sibling-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 48px 0 80px;
+  border-top: 1px solid var(--border);
+}
+
+.pp-sibling-link {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-decoration: none;
+  cursor: none;
+  transition: opacity .2s;
+  max-width: 45%;
+}
+
+.pp-sibling-link:hover { opacity: .8; }
+
+.pp-sibling-next {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.pp-sibling-dir {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: .5px;
+}
+
+.pp-sibling-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: -.3px;
+}
+
+/* ── Project card 'View details' hint ── */
+.project-view-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-family: var(--mono);
+  color: var(--muted);
+  margin-top: 8px;
+  transition: color .2s, gap .2s;
+}
+
+.project-card:hover .project-view-hint {
+  color: var(--accent);
+  gap: 10px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .pp-body {
+    padding: 48px 24px 0;
+    gap: 48px;
+  }
+
+  .pp-two-col {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .pp-hero-content {
+    padding: 0 24px 40px;
+  }
+
+  .pp-cta-banner {
+    padding: 40px 24px;
+  }
+
+  .pp-sibling-nav {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .pp-sibling-link {
+    max-width: 100%;
+  }
+
+  .pp-sibling-next {
+    align-items: flex-start;
+    text-align: left;
+  }
+}

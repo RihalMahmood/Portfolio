@@ -11,6 +11,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import CustomCursor from "./components/CustomCursor";
 import AboutPage from "./components/AboutPage";
+import ProjectPage from "./components/ProjectPage";
 
 import './index.css';
 
@@ -133,6 +134,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage theme={theme} toggleTheme={toggleTheme} />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/projects/:slug" element={<ProjectPage />} />
       </Routes>
     </BrowserRouter>
   );

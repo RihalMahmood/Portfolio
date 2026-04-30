@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { projects } from "../data";
 
 export default function Projects({ setHovering }) {
@@ -14,9 +15,11 @@ export default function Projects({ setHovering }) {
 
       <div className="projects-grid">
         {projects.map((p, i) => (
-          <div
+          <Link
             key={p.id}
+            to={`/projects/${p.slug}`}
             className={`project-card reveal d${(i % 3) + 1} ${p.wide ? "wide" : ""}`}
+            style={{ textDecoration: "none", color: "inherit" }}
             {...ho}
           >
             <div className="project-img">
@@ -35,8 +38,15 @@ export default function Projects({ setHovering }) {
               <div className="project-techs">
                 {p.techs.map(t => <span key={t} className="project-tech">{t}</span>)}
               </div>
+              {/* "View details" hint */}
+              <div className="project-view-hint">
+                View details
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div></section>
