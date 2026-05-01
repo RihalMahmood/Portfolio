@@ -62,7 +62,15 @@ export default function Navbar({ scrolled, setHovering, activeSection, theme, to
           >
             {theme === "dark" ? "☼" : "☾"}
           </button>
-          <button className="nav-cta" {...ho}>Hire Me</button>
+          <a
+            href="/files/CV.pdf"
+            download="Quazi_Rihal_Mahmood_CV.pdf"
+            className="nav-cta"
+            style={{ textDecoration: "none" }}
+            {...ho}
+          >
+            Download Resume
+          </a>
         </div>
       </div>
     </motion.nav>
