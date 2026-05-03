@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 
-const text = "Welcome to Rihal's Portfolio".split(" ");
+const text = "Hala Madrid y nada más".split(" ");
 
 /*Images that must be loaded before the loader dismisses.
 The hero band image is the one that animates immediately after the
