@@ -3,9 +3,17 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="./public/images/Thumbnail.png" />
+  <link rel="icon" type="image/svg+xml" href="./public/images/RM.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quazi Rihal Mahmood</title>
+
+  <!--
+    Fetch the hero / about photo at maximum browser priority before
+    any JS or CSS is parsed. This means the image is ready (or very
+    close to ready) by the time the Loader finishes and the Hero
+    animation fires — even on a cold first visit.
+  -->
+  <link rel="preload" as="image" href="/images/Riju.png" fetchpriority="high" />
 
   <!--
     Runs synchronously before any CSS or React renders.
