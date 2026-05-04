@@ -11,9 +11,9 @@ export default function Hero({ setHovering, isLoading }) {
     <section className="hero" id="top">
       {/*Decorative SVG path*/}
       <svg style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, pointerEvents: "none" }}>
-        <path d="M -100 200 Q 300 500 500 -100" stroke="var(--border)" strokeWidth="1" fill="transparent" />
-        <circle r="3" fill="none" stroke="var(--accent)" strokeWidth="1.5">
-          <animateMotion dur="22s" repeatCount="indefinite" path="M -100 200 Q 300 500 500 -100" keyPoints="1;0;1" keyTimes="0;0.5;1" calcMode="linear" />
+        <path d="M -100 200 Q 300 500 500 -100" style={{ stroke: "var(--border)" }} strokeWidth="1" fill="transparent" />
+        <circle r="3" fill="none" style={{ stroke: "var(--accent)" }} strokeWidth="1.5">
+          <animateMotion dur="22s" repeatCount="indefinite" path="M -100 200 Q 300 500 500 -100" keyPoints="1;0;1" keyTimes="0;0.5;1" calcMode="linear" begin="0s" />
         </circle>
       </svg>
 
